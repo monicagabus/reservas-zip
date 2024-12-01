@@ -1,7 +1,7 @@
 package com.ejemplo.reservas.infraestructure.rest;
 
-import com.ejemplo.reservas.application.ReservasService;
-import com.ejemplo.reservas.domain.Reservas;
+import com.ejemplo.reservas.application.ReservaService;
+import com.ejemplo.reservas.domain.Reserva;
 import com.ejemplo.reservas.domain.Usuario;
 
 import java.util.UUID;
@@ -11,22 +11,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/reservas")
-public class ReservasController {
+@RequestMapping("/reserva")
+public class ReservaController {
 
     @Autowired
-    private ReservasService reservasService;
+    private ReservaService reservaService;
 
     @PostMapping("/createReserva")
     @ResponseStatus(HttpStatus.CREATED)
-    public Reservas createReserva(@RequestBody Reservas reservas) {
-        return reservasService.createReserva(reservas);
+    public Reserva createReserva(@RequestBody Reserva reserva) {
+        return reservaService.createReserva(reserva);
     }
 
     @PutMapping("/dejarReserva/{usuarioId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void dejarReserva(@PathVariable UUID usuarioId) {
-        reservasService.dejarReserva(new Usuario(usuarioId));
+        reservaService.dejarReserva(new Usuario(usuarioId));
     }
 }
 

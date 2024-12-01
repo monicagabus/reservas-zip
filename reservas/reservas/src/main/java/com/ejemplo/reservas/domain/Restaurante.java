@@ -8,11 +8,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="restaurantes", schema = "reserva_schema")
-public class Restaurantes {
+@Table(name="restaurante", schema = "reserva_schema")
+public class Restaurante {
     @Id
-    @Column(name = "restaurantes_id")
-    private UUID restaurantesId;
+    @Column(name = "restaurante_id")
+    private UUID restauranteId;
 
     @Column(name = "nombre")
     private String nombre;
@@ -26,28 +26,28 @@ public class Restaurantes {
     @Column(name = "comensales_actuales")
     private int comensalesActuales;
     
-    public Restaurantes(UUID restaurantesId, String nombre, int capacidad, String tipo_comida, int comensalesActuales){
-        this.restaurantesId = restaurantesId;
+    public Restaurante(UUID restauranteId, String nombre, int capacidad, String tipo_comida, int comensalesActuales){
+        this.restauranteId = restauranteId;
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.tipo_comida = tipo_comida;
         this.comensalesActuales = comensalesActuales;
     }
-    public Restaurantes(String nombre, int capacidad, String tipo_comida){
-        this.restaurantesId = UUID.randomUUID();
+    public Restaurante(String nombre, int capacidad, String tipo_comida){
+        this.restauranteId = UUID.randomUUID();
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.tipo_comida = tipo_comida;
         this.comensalesActuales = 0;
     }
-    public Restaurantes(){}
+    public Restaurante(){}
 
-    public UUID getRestaurantesId() {
-        return restaurantesId;
+    public UUID getRestauranteId() {
+        return restauranteId;
     }
 
-    public void setRestaurantesId(UUID restaurantesId) {
-        this.restaurantesId = restaurantesId;
+    public void setRestauranteId(UUID restauranteId) {
+        this.restauranteId = restauranteId;
     }
 
     public String getNombre() {

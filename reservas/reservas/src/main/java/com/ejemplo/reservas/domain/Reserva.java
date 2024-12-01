@@ -9,20 +9,20 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "reservas", schema = "reserva_schema")
-public class Reservas {
+@Table(name = "reserva", schema = "reserva_schema")
+public class Reserva {
 
     @Id
     @Column(name = "reserva_id")
-    private UUID reservasId;
+    private UUID reservaId;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", referencedColumnName = "usuario_id")
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "restaurantes_id", referencedColumnName = "restaurantes_id")
-    private Restaurantes restaurantes;
+    @JoinColumn(name = "restaurante_id", referencedColumnName = "restaurante_id")
+    private Restaurante restaurante;
 
     @Column(name = "activa")
     private boolean activa;
@@ -30,28 +30,28 @@ public class Reservas {
     @Column(name = "numero_comensales")
     private int numeroComensales;
 
-    public Reservas(UUID reservasId, Usuario usuario, Restaurantes restaurantes, boolean activa, int numeroComensales) {
-        this.reservasId = reservasId;
+    public Reserva(UUID reservaId, Usuario usuario, Restaurante restaurante, boolean activa, int numeroComensales) {
+        this.reservaId = reservaId;
         this.usuario = usuario;
-        this.restaurantes = restaurantes;
+        this.restaurante = restaurante;
         this.activa = activa;
         this.numeroComensales = numeroComensales;
     }
 
-    public Reservas(Usuario usuario, Restaurantes restaurantes, int numeroComensales) {
-        this.reservasId = UUID.randomUUID();
+    public Reserva(Usuario usuario, Restaurante restaurante, int numeroComensales) {
+        this.reservaId = UUID.randomUUID();
         this.usuario = usuario;
-        this.restaurantes = restaurantes;
+        this.restaurante = restaurante;
         this.activa = true;
         this.numeroComensales = numeroComensales;
     }
-    public Reservas() { }
+    public Reserva() { }
     public UUID getReservasId() {
-        return reservasId;
+        return reservaId;
     }
 
-    public void setReservasId(UUID reservasId) {
-        this.reservasId = reservasId;
+    public void setReservaId(UUID reservaId) {
+        this.reservaId = reservaId;
     }
 
     public Usuario getUsuario() {
@@ -62,12 +62,12 @@ public class Reservas {
         this.usuario = usuario;
     }
 
-    public Restaurantes getRestaurantes() {
-        return restaurantes;
+    public Restaurante getRestaurante() {
+        return restaurante;
     }
 
-    public void setRestaurantes(Restaurantes restaurantes) {
-        this.restaurantes = restaurantes;
+    public void setRestaurante(Restaurante restaurante) {
+        this.restaurante = restaurante;
     }
 
     public boolean isActiva() {
