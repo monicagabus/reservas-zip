@@ -37,13 +37,13 @@ public class UsuarioController {
         return usuarioService.getUsuario(usuarioId);
     }
 
-    @GetMapping
+    @GetMapping("/listUsuarios")
     @ResponseStatus(HttpStatus.OK)
     public List<Usuario> getAllUsuarios() {
         return usuarioService.findAllUsuarios();
     }
 
-    @DeleteMapping("/{usuarioId}")
+    @DeleteMapping("/{deleteUsuario}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteUsuario(@PathVariable String usuarioId) {
         usuarioService.deleteUsuario(usuarioId);

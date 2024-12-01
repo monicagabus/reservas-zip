@@ -36,17 +36,17 @@ public class RestauranteController {
         return restauranteService.getRestaurante(restauranteId);
     }
     
-   @DeleteMapping("/{restauranteId}")
+   @DeleteMapping("/deleteRestaurante")
    @ResponseStatus(HttpStatus.OK)
     public void deleteRestaurante(@PathVariable String restauranteId){
         restauranteService.deleteRestaurante(restauranteId);
     }
-    @PutMapping("/{restauranteId}")
+    @PutMapping("/updateRestaurante")
     @ResponseStatus(HttpStatus.OK)
     public Restaurante updateRestaurante(@PathVariable String restauranteId, @RequestBody Restaurante restaurante) {
         return restauranteService.updateRestaurante(restauranteId, restaurante.getTipo_comida(), restaurante.getCapacidad(), restaurante.getComensalesActuales() );
     }
-    @GetMapping
+    @GetMapping("/listRestaurantes")
     @ResponseStatus(HttpStatus.OK)
     public List<Restaurante> getAllRestaurante() {
         return restauranteService.findAllRestaurante();
